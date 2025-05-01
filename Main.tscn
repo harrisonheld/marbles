@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cth5vkqim73mh"]
+
+[ext_resource type="PackedScene" uid="uid://ddunwcd075jo0" path="res://Marble.tscn" id="1_452hc"]
+[ext_resource type="Script" path="res://turn_manager.gd" id="1_xtmnb"]
+
+[sub_resource type="Gradient" id="Gradient_4eks5"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s4l2y"]
+gradient = SubResource("Gradient_4eks5")
+fill_from = Vector2(0, 1)
+
+[node name="Main" type="Node2D"]
+
+[node name="Marble" parent="." groups=["marbles"] instance=ExtResource("1_452hc")]
+position = Vector2(93, 348)
+
+[node name="Marble2" parent="." groups=["marbles"] instance=ExtResource("1_452hc")]
+position = Vector2(993, 292)
+
+[node name="TurnManager" type="Node" parent="."]
+script = ExtResource("1_xtmnb")
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(100, 93)
+
+[node name="Polygon2D" type="Polygon2D" parent="Platform"]
+position = Vector2(-40, 171)
+texture = SubResource("GradientTexture2D_s4l2y")
+polygon = PackedVector2Array(-169, 190, 37, 228, 219, 197, 463, 186, 679, 230, 892, 184, 1038, 178, 1154, 202, 1159, 610, -201, 609)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform"]
+position = Vector2(-40, 172)
+polygon = PackedVector2Array(-169, 190, 37, 228, 219, 197, 463, 186, 679, 230, 892, 184, 1038, 178, 1154, 202, 1159, 610, -201, 609)
